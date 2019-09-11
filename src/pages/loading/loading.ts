@@ -11,10 +11,14 @@ export class LoadingPage {
   constructor(public loadingCtrl: LoadingController) { }
 
   presentLoading() {
-    this.loadingCtrl.create({
+    let loading = this.loadingCtrl.create({
       content: 'Please wait...',
       duration: 3000,
-    }).present();
+    });
+    loading.present();
+    loading.onDidDismiss(() => {
+      console.log('Dismissed loading');
+    });
   }
 
 }
